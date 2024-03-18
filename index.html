@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body onload="onInit()">
+    <nav class="nav-gallery">
+        <div class="logo">memegenerator</div>
+        <ul class="links">
+            <li class="gallery-link" onclick="moveToGallery()">gallery</li>
+            <li class="gallery-link" onclick="moveToEdit()">edit</li>
+            <li class="gallery-link" onclick="moveToSavedMemes()">yourmemes</li>
+        </ul>
+    </nav>
+    <div class="header-gallery"></div>
+    <div class="gallery"></div>
+    <div class="editorcontainer none">
+        <div class="settings">
+            <div class="area1">
+                <input type="text" class="memetxteditor" onkeyup="onEditTxt(this)">
+            </div>
+        <div class="area2">
+            <button onclick="onAddLine()">+</button>
+            <button onclick="onChangeLine()">ch</button>
+            <button onclick="onAreseTxt()">er</button>
+        </div>
+        <div class="area3">
+            <button onclick="onEnlargeTxt()">a+</button>
+            <button onclick="onReduceTxt()">a-</button>
+            <button onclick="onAlignTxt('right')">r</button>
+            <button onclick="onAlignTxt('center')">c</button>
+            <button onclick="onAlignTxt('left')">l</button>
+            <button><input type="color" value="#ffffff"
+              onchange="onSetColor(this.value)"></button>
+        </div>
+        <div class="area4">
+            
+        </div>
+        <div class="area5">
+            <button>share</button>
+            <button onclick="onSaveMeme()">save</button>
+        </div>
+
+        </div>
+        <div class="canvaseditor">
+            <canvas></canvas>
+        </div>
+    </div>
+    <div class="mymemes none">
+        
+        
+    </div>
+    <script src="./js/mymemes.js"></script>
+    <script src="./js/services.js/meme-service.js"></script>
+    <script src="./js/controler.js"></script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/services.js/pic-service.js"></script>
+    <script src="./js/services.js/storage-service.js"></script>
+   
+  
+</body>
+</html>

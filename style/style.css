@@ -1,0 +1,68 @@
+.gallery{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pic{
+    height: 280px;
+    width: 280px;
+    margin: 10px;
+}
+.nav-gallery{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 10vw;
+    margin-block: 5vh;
+}
+.links{
+    list-style: none;
+    display: flex;
+   
+    
+}
+.gallery-link{
+    margin: 20px;
+    font-size: 20px;
+}
+.logo{
+    font-size: 30px;
+    margin: 20px;
+}
+.none{
+    display: none;
+    visibility: hidden;
+}
+.editorcontainer{
+    display:flex;
+    flex-direction: row-reverse
+}
+.settings{
+    display:flex;
+    flex-direction: column;
+    width:450px;
+    height: 400px;
+    gap:10px;
+}
+.canvaseditor{
+    display: flex;
+    width:450px;
+    height: 400px;
+    
+}
+canvas{
+    height: 400px;
+    width: 400px;
+}
+.myCanvasContainer{
+    display: flex;
+    width:450px;
+    height: 400px;
+}
+.mymemes{  
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+}
