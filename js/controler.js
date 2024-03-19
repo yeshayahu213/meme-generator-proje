@@ -46,4 +46,6 @@ function moveToSavedMemes() {
     pagesObj.elEditor.classList.add('none')
 }
 
-
+function onToggleGalery() {
+    document.querySelector('body').classList.toggle('menu-open')
+}

@@ -3,6 +3,7 @@ let gCtx
 var gTxtSize = 45
 var gStrockeColor = 'white'
 var gFillStyleColor = 'white'
+var gIsDrawRect = true
 
 
 
@@ -49,16 +50,25 @@ function renderCanvas() {
 
 
         meme.lines.forEach(line => {
-            console.log(line.location);
-            console.log(130 / line.location, line.txt);
-            drawText(line.txt, 130, 130 / line.location, line.fillColor, line.stroke,
-                line.size, line.align)
+
+
+            drawText(line.txt, 130, 30 * line.location, line.fillColor, line.stroke,
+                line.size, line.align, line.font)
         });
+
+        if (gIsDrawRect) {
+            console.log(gIsDrawRect);
+            drawRect(150, meme.lines[meme.selectedLineIdx].location, meme.lines[meme.selectedLineIdx].location
+                , meme.lines[meme.selectedLineIdx].size)
+        }
+        else gIsDrawRect = true
     }
+
 }
 
 function onAddLine() {
     if (meme.lines.length <= 3) addLine()
+    else return
 
     renderCanvas()
 }
@@ -75,14 +85,14 @@ function changeTxt(txt) {
 }
 
 function drawText(text, x = 0, y = 10, strockeColor = "white", fillStyleColor = "white", fontSize = 25,
-    align = "center") {
+    align = "center", font) {
     gCtx.lineWidth = 2
 
     gCtx.strokeStyle = strockeColor
 
     gCtx.fillStyle = fillStyleColor
 
-    gCtx.font = `${fontSize}px Arial`
+    gCtx.font = `${fontSize}px ${font}`
     gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
@@ -114,17 +124,60 @@ function onAreseTxt() {
     areseTxt()
     renderCanvas()
 }
+
+function onPresentDemo() {
+
+    gIsDrawRect = false
+
+    renderCanvas()
+
+
+
+}
 function onSaveMeme() {
+
+    gIsDrawRect = false
+    renderCanvas()
+
+    setTimeout(() => save(), 100)
+
+
+
+
+}
+function save() {
     saveCurrMeme()
-
-
     var elEditorTxt = document.querySelector('.memetxteditor')
     elEditorTxt.value = ''
     moveToSavedMemes()
     renderCanvasMy()
 }
 function onSetColor(value) {
-    console.log(value);
+
     updateColor(value)
     renderCanvas()
+}
+
+function drawRect(x, location, height, size) {
+    console.log(x, location, height, size);
+
+    gCtx.strokeStyle = 'gray'
+    gCtx.lineWidth = 2
+    gCtx.strokeRect(5, location * 28 - (size / 2), 291, size + 5)
+
+
+}
+
+function shareOnFacebook() {
+    onUploadImg()
+}
+function onchangeFont(value) {
+    console.log(value);
+    changeLineFont(value)
+    renderCanvas()
+}
+
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
 }

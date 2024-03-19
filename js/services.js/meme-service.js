@@ -10,6 +10,7 @@ function createMeme() {
         id: makeId(),
         lines: [
             {
+                font: 'Arial',
                 location: 1,
                 size: 35,
                 txt: '',
@@ -41,6 +42,7 @@ function updateCurrImg(id = gTempMeme.img) {
 function addLine() {
     if (gTempMeme.lines.length > 3) return
     var line = {
+        font: 'Arial',
         location: 1 + gTempMeme.lines.length,
         txt: '',
         size: 35,
@@ -140,7 +142,10 @@ function updateImages(images) {
 
 }
 
-
 function updateColor(color) {
     gTempMeme.lines[gTempMeme.selectedLineIdx].fillColor = color
+}
+
+function changeLineFont(font) {
+    gTempMeme.lines[gTempMeme.selectedLineIdx].font = font
 }

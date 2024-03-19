@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 
 </head>
 <body onload="onInit()">
     <nav class="nav-gallery">
         <div class="logo">Memegenerator</div>
+        <div class="open-gallery-link" onclick="onToggleGalery()"> h</div>
         <ul class="links">
             <li class="gallery-link" onclick="moveToGallery()">gallery</li>
-            <li class="gallery-link" onclick="moveToEdit()">edit</li>
+            <!--<li class="gallery-link" onclick="moveToEdit()">edit</li>-->
             <li class="gallery-link" onclick="moveToSavedMemes()">yourmemes</li>
         </ul>
     </nav>
@@ -34,6 +35,15 @@
             <button onclick="onAlignTxt('right')">r</button>
             <button onclick="onAlignTxt('center')">c</button>
             <button onclick="onAlignTxt('left')">l</button>
+
+            <select  class="choose-font" onchange="onchangeFont(this.value)">
+                <option value="">--Please choose an font--</option>
+                <option value="Arial">Arial</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Impact">Impact</option>
+                
+              </select>
             <button><input type="color" value="#ffffff"
               onchange="onSetColor(this.value)"></button>
         </div>
@@ -41,7 +51,9 @@
             
         </div>
         <div class="area5">
-            <button>share</button>
+            <button onclick="shareOnFacebook()">share</button>
+            <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download jpeg</a>
+            <button onclick="onPresentDemo()">demo</button>
             <button onclick="onSaveMeme()">save</button>
         </div>
 
@@ -54,12 +66,13 @@
         
         
     </div>
-    <script src="./js/mymemes.js"></script>
-    <script src="./js/services.js/meme-service.js"></script>
-    <script src="./js/controler.js"></script>
-    <script src="./js/canvas.js"></script>
-    <script src="./js/services.js/pic-service.js"></script>
-    <script src="./js/services.js/storage-service.js"></script>
+    <script src="js/services.js/upload-service.js"></script>
+    <script src="js/mymemes.js"></script>
+    <script src="js/services.js/meme-service.js"></script>
+    <script src="js/controler.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/services.js/pic-service.js"></script>
+    <script src="js/services.js/storage-service.js"></script>
    
   
 </body>
